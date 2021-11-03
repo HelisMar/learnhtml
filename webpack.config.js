@@ -3,7 +3,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const glob = require('glob');
-
+const { VueLoaderPlugin } = require('vue-loader')
 module.exports = {
     entry: './src/index.js',
     output: {
@@ -39,16 +39,23 @@ module.exports = {
             {
                 test: /\.ts$/,
                 use: ['ts-loader']
+            },
+            {
+                test: /\.vue$/,
+                use: ['vue-loader']
             }
         ],
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html'
+
+            
         }),
         new MiniCssExtractPlugin(),
         new PurgecssPlugin({
             paths: glob.sync(`./src/**/*`,  { nodir: true }),
-        })
+        }),
+        new VueLoaderPlugin()
     ],
 };

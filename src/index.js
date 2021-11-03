@@ -1,21 +1,40 @@
-console.log('hello');
-console.log('world');
-let longAssVariableName = "takes up many bytes";
-console.log(longAssVariableName);
+import Vue from 'vue/dist/vue.common.dev';
+import 'bootstrap';
+import 'bootstrap/scss/bootstrap.scss';
 
-// const calculator = require('./calc.js');
-// console.log(calculator.add(1,2));
+import App from './App.vue';
 
-import calc from './calc.js';
+Vue.component('app', App);
 
-console.log(calc.add(2,5));
+new Vue({
+    el: '#app',
+    created(){
+        setInterval(()=> {
+            this.date = new Date().toLocaleTimeString();
+        } , 1000); 
+    },
 
-let text = require('./text.txt').default;
-console.log(text);
-import text2 from './text.txt';
-console.log(text2);
-import './style.scss';
-import './style.sass';
-import './style.css';
-import './index.coffee';
-import './index.ts';
+
+    data: {
+        message: '',
+        date: '',
+        newItem: '',
+        items: ['Sai', 'Leib', 'Piim']
+
+
+    },
+    computed: {
+        reverseMessage(){
+            return this.message.split('').reverse().join('');
+        }
+    },
+    methods: {
+        addItem(){
+            if (this.newItem.trim() != '') {  //kui ei võrdu tühja sringiga, ainult siis pushi arraysse (lisa ainult siis kui on tekst )
+                this.items.push(this.newItem);
+            }
+            this.newItem = '';   //teeb tekstiboxi tühjaks peale "submittimist, add itemdamist"
+
+        }
+    }
+});
