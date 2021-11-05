@@ -53,9 +53,9 @@ module.exports = {
             
         }),
         new MiniCssExtractPlugin(),
-        new PurgecssPlugin({
-            paths: glob.sync(`./src/**/*`,  { nodir: true }),
-        }),
+        //new PurgecssPlugin({
+          //  paths: glob.sync(`./src/**/*`,  { nodir: true }),
+        //}),
         new VueLoaderPlugin()
     ],
 };

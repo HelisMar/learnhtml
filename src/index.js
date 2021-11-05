@@ -2,6 +2,7 @@ import Vue from 'vue/dist/vue.common.dev';
 import 'bootstrap';
 import 'bootstrap/scss/bootstrap.scss';
 
+
 import App from './App.vue';
 
 Vue.component('app', App);
