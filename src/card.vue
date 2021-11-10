@@ -2,9 +2,9 @@
   <div class="card" >
     <div class="card-body">
         <h5 class="card-title text-center"> {{name}}</h5>
-    <p class="card-text text-center">
-        {{info.temperature}}
-    </p>
+         <p class="card-text text-center">
+              {{info.temperature}}
+         </p>
     <p class="card-text text-center">
         {{info.wind}}
     </p>
